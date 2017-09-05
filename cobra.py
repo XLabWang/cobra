@@ -1,25 +1,11 @@
-#!/usr/bin/env python
-#
-# Copyright 2016 Feei. All Rights Reserved
-#
-# Author:   Feei <wufeifei@wufeifei.com>
-# Homepage: https://github.com/wufeifei/cobra
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-#
-# See the file 'doc/COPYING' for copying permission
-#
-from app import web, manager
-from utils import config
+#!/usr/bin/python
 
+# -*- coding: utf-8 -*-
+import re
+import sys
 
-def main():
-    debug = config.Config('cobra', 'debug').value
-    web.debug = bool(debug)
-    manager.run()
-
+from cobra import main
 
 if __name__ == '__main__':
-    main()
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
