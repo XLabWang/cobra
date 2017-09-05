@@ -141,7 +141,7 @@ def set_logger(filename=None, mode='a', level='DEBUG:INFO',
     else:
         s_level = level[0]  # StreamHandler log level
         f_level = level[1]  # FileHandler log level
-    if fmt is not None:
+    if fmt is None:
         if s_level == 'ERROR' or f_level == 'ERROR':
             fmt = '[%(levelname)s] %(asctime)s %(message)s in  \'%(filename)s:%(lineno)s\''
         else:
